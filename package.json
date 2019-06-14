@@ -1,0 +1,25 @@
+{
+  "name": "registration-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "debug": "nodemon --inspect=0.0.0.0 app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MennaAnees/registration-form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MennaAnees/registration-form/issues"
+  },
+  "homepage": "https://github.com/MennaAnees/registration-form#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "mongoose": "^5.5.15",
+    "npm": "^6.9.0"
+  }
+}
