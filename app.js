@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const userController = require('./controllers/user');
+const statusController = require('./controllers/status');
+const { authMiddleware } = require('./middlewares');
 
 const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/form';
 mongoose.connect(mongoURL, { useNewUrlParser: true }, (err) => {
@@ -16,12 +19,13 @@ mongoose.connect(mongoURL, { useNewUrlParser: true }, (err) => {
 // app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-const userController = require('./controllers/user');
-
 app.use('/user', userController);
 
-var port = process.env.port || 3000;
+app.use(authMiddleware);
+app.use('/status', statusController);
+
+
+const port = process.env.port || 3000;
 app.listen(port, () => {
-    console.log(`app is listening on port ${port}`);
+  console.log(`app is listening on port ${port}`);
 });

@@ -1,0 +1,38 @@
+{
+    "extends": [
+      "airbnb-base/legacy"
+    ],
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "no-console": [
+        "warn",
+        {
+          "allow": ["info", "warn", "error"]
+        }
+      ],
+      "global-require": [
+        "warn"
+      ],
+      "consistent-return": ["warn"],
+      "max-len": [
+        "warn"
+      ],
+      "no-param-reassign": [
+        "off"
+      ],
+      "no-underscore-dangle": "off",
+      "no-unused-vars": [
+        "warn",
+        {
+          "args": "none"
+        }
+      ],
+      "camelcase": "warn",
+      "no-unused-expressions": ["warn"]
+    }
+  }
+  
