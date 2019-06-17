@@ -7,7 +7,7 @@ module.exports = {
         lastName: 'user',
         gender: 'male',
         countryCode: 'Eg',
-        birthdate: '1990'
+        birthdate: '1990-12-12'
     },
     statusData:{
         name : "testStatus"

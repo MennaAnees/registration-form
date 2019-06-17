@@ -44,7 +44,7 @@ const userSchema = new Schema({
   },
   birthdate: {
     type: String,
-    validate:[{
+    validate: [{
       validator: v => { return validateDateFormat(v) },
       message: props => `${props.value} Invalid Date!`
     },
@@ -54,8 +54,7 @@ const userSchema = new Schema({
     }]
   },
   avatar: {
-    type: String
-    // required: [true, 'password is required']
+    type: String    
   }
 });
 
