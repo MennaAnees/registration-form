@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
-const { mapMongoosErrors, mapMongoUniqueError } = require('../helpers');
+const { mapMongoosErrors, mapMongoUniqueError,
+  validateDateFormat, validateDate } = require('../helpers');
+
 const userSchema = new Schema({
   email: {
     type: String,
@@ -41,8 +43,15 @@ const userSchema = new Schema({
     // required: [true, 'password is required']
   },
   birthdate: {
-    type: String
-    // required: [true, 'password is required']
+    type: String,
+    validate:[{
+      validator: v => { return validateDateFormat(v) },
+      message: props => `${props.value} Invalid Date!`
+    },
+    {
+      validator: v => { return validateDate(v) },
+      message: props => `${props.value} In The Future!`
+    }]
   },
   avatar: {
     type: String
