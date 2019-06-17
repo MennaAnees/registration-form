@@ -1,0 +1,3 @@
+--timeout 50s
+--reporter mochawesome
+--reporter-options overwrite=true,reportDir=test/report,reportFilename=index.html,reportPageTitle=Test%20APIs%20unit%20test%20report

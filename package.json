@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "debug": "nodemon --inspect=0.0.0.0 app.js"
+    "debug": "nodemon --inspect=0.0.0.0 app.js",
+    "test": " MONG_URL=mongodb://localhost:27017/cognitive-test node ./node_modules/mocha/bin/mocha test/integration/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -26,10 +27,15 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3",
-    "babel-eslint": "^10.0.1"
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2",
+    "expect": "^21.2.1",
+    "mochawesome": "^2.3.1"
   }
 }
