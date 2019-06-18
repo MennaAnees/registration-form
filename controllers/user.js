@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
       avatar: body.avatar
     });
     res
-      .status(200)
+      .status(201)
       .send({ data: user });
   } catch (errors) {
     res
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
     if (!matchedPassword) throw new Error('Wrong Password');
     const token = jwt.sign({ userId: user._id }, 'secret');
     res
-      .status(200)
+      .status(201)
       .send({ token });
   } catch (error) {
     res

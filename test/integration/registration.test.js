@@ -20,7 +20,27 @@ describe('Registration APIS', () => {
     done();
   });
 
-  it('User Registration', (done) => {
+  it('User Registration With Wrong Data (must fail)', (done) => {
+    var _it = this;
+    var _requestData = testData.wrongData;
+    _it.request = testData.registerData;
+
+    request(app)
+      .post('/user/register')
+      .set('Accept', 'application/json')
+      .send(_requestData)
+      .end((err, response) => {
+        var _response = response.body.data;
+        _it.response = response.body;
+
+        if (err) done(err);
+
+        expect(response.status).toBe(400);
+        done();
+      });
+  });
+
+  it('User Registration with valid data (Pass)', (done) => {
     var _it = this;
     var _requestData = testData.registerData;
     _it.request = testData.registerData;
@@ -35,7 +55,7 @@ describe('Registration APIS', () => {
 
         if (err) done(err);
 
-        expect(response.status).toBe(200);
+        expect(response.status).toBe(201);
         expect(_response.email).toBe(testData.registerData.email);
         expect(Number(_response.phoneNumber)).toBe(testData.registerData.phoneNumber);
         expect(_response.firstName).toBe(testData.registerData.firstName);
@@ -43,6 +63,24 @@ describe('Registration APIS', () => {
         expect(_response.birthdate).toBe(testData.registerData.birthdate);
         expect(_response.gender).toBe(testData.registerData.gender);
         expect(_response.countryCode).toBe(testData.registerData.countryCode);
+        done();
+      });
+  });
+
+  it('Not Authorized User Set Status (Must Fail)', (done) => {
+    var _it = this;
+    var _requestData = testData.statusData;
+    _it.request = _requestData;
+
+    request(app)
+      .post('/status')
+      .set('Accept', 'application/json')
+      .send(_requestData)
+      .end((err, response) => {
+        _it.response = response.body;
+        
+        if (err) done(err);
+        expect(response.status).toBe(401);
         done();
       });
   });
@@ -65,14 +103,14 @@ describe('Registration APIS', () => {
         _it.response = response.body;
 
         if (err) done(err);
-        expect(response.status).toBe(200);
+        expect(response.status).toBe(201);
         expect(_response.token).toBeDefined();
         token = _response.token;
         done();
       });
   });
 
-  it('User Set Status', (done) => {
+  it('Authorized User Set Status (pass)', (done) => {
     var _it = this;
     var _requestData = testData.statusData;
     _it.request = _requestData;

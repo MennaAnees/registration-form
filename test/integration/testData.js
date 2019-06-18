@@ -9,6 +9,14 @@ module.exports = {
         countryCode: 'Eg',
         birthdate: '1990-12-12'
     },
+    wrongData: {
+        password: 123,
+        firstName: 'test',
+        lastName: 'user',
+        gender: 'male',
+        countryCode: 'Eg',
+        birthdate: '2050-12-12'
+    },
     statusData:{
         name : "testStatus"
     }
