@@ -13,7 +13,9 @@ Instructions:
     -run server
 
 3 APIS:
-
 -/user/register 
 -/user/login
 -/status
+
+To Run Integration Test Scenarios:
+-npm run test
