@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "debug": "nodemon --inspect=0.0.0.0 app.js",
+    "start": "node app.js",
+    "debug": "node --inspect=0.0.0.0 app.js",
     "test": " MONG_URL=mongodb://localhost:27017/cognitive-test node ./node_modules/mocha/bin/mocha test/integration/*.test.js"
   },
   "repository": {
