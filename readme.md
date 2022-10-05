@@ -1,19 +1,19 @@
 #registration-form
 
-##Built BY:
+###Built BY:
     -NodeJS/ExpressJS
     -Mongodb 
     -Docker 
     -Mocha
     -eslint 
 
-##Instructions:
+###Instructions:
 -Docker-compose up: 
     -connect database
     -npm install
     -run server
 
-##3 APIS:
+###3 APIS:
 -/user/register 
 -/user/login
 -/status
