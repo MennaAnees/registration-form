@@ -1,5 +1,7 @@
 # Registration-form
 
+### this is a prototype for registeration and login using NodeJs (Expressjs) and MongoDB.
+
 ### Built by:
      NodeJS/ExpressJS
      Mongodb 
@@ -9,9 +11,9 @@
 
 ### Instructions:
 - run `docker-compose up` this will do: 
-1- connect database
-2- npm install
-3- run server
+1. connect database
+2. npm install
+3. run server
 
 ### 3 APIS:
 - /user/register 
